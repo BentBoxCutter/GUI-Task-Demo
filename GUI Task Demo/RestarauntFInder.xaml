@@ -1,0 +1,81 @@
+﻿<Window x:Class="GUI_Task_Demo.RestarauntFInder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_Task_Demo"
+        mc:Ignorable="d"
+        Title="RestarauntFInder" Height="450" Width="400">
+    <StackPanel >
+        <Label Content="Choose Cookies from Restraunt" HorizontalAlignment="Left" Margin="32,10,0,0" VerticalAlignment="Top"/>
+        <Border Margin="4" BorderBrush="Blue" BorderThickness="2" Padding="4">
+            <StackPanel>
+                <DockPanel  HorizontalAlignment="Stretch" >
+                    <CheckBox DockPanel.Dock="Left">Subway</CheckBox>
+
+                </DockPanel>
+            </StackPanel>
+        </Border>
+        <Border Margin="4" BorderBrush="Blue" BorderThickness="2" Padding="4">
+            <StackPanel>
+                <DockPanel  HorizontalAlignment="Stretch" >
+                    <CheckBox DockPanel.Dock="Left">Grandma's Sweatshop</CheckBox>
+
+                </DockPanel>
+            </StackPanel>
+        </Border>
+        <Border Margin="4" BorderBrush="Blue" BorderThickness="2" Padding="4">
+            <StackPanel>
+                <DockPanel  HorizontalAlignment="Stretch" >
+                    <CheckBox DockPanel.Dock="Left">Girl Scouts</CheckBox>
+
+                </DockPanel>
+            </StackPanel>
+        </Border>
+        <Border Margin="4" BorderBrush="Blue" BorderThickness="2" Padding="4">
+            <StackPanel>
+                <DockPanel  HorizontalAlignment="Stretch" >
+                    <CheckBox DockPanel.Dock="Left">Wendy's</CheckBox>
+
+                </DockPanel>
+            </StackPanel>
+        </Border>
+        <Border Margin="4" BorderBrush="Blue" BorderThickness="2" Padding="4">
+            <StackPanel>
+                <DockPanel  HorizontalAlignment="Stretch" >
+                    <CheckBox DockPanel.Dock="Left">Cookie Emporium</CheckBox>
+
+                </DockPanel>
+            </StackPanel>
+        </Border>
+        <Border Margin="4" BorderBrush="Blue" BorderThickness="2" Padding="4">
+            <StackPanel>
+                <DockPanel  HorizontalAlignment="Stretch" >
+                    <CheckBox DockPanel.Dock="Left">Totally Legit Cookies</CheckBox>
+
+                </DockPanel>
+            </StackPanel>
+        </Border>
+        <Border Margin="4" BorderBrush="Blue" BorderThickness="2" Padding="4">
+            <StackPanel>
+                <DockPanel  HorizontalAlignment="Stretch" >
+                    <CheckBox DockPanel.Dock="Left">Dumpster Cookies</CheckBox>
+
+                </DockPanel>
+            </StackPanel>
+        </Border>
+        <Border Margin="4" BorderBrush="Blue" BorderThickness="2" Padding="4">
+            <StackPanel>
+                <DockPanel  HorizontalAlignment="Stretch" >
+                    <CheckBox DockPanel.Dock="Left">Stolen Cookies</CheckBox>
+
+                </DockPanel>
+            </StackPanel>
+        </Border>
+        <DockPanel>
+            <Button DockPanel.Dock="Left" Height="30" Width="60">Settings</Button>
+            <Button DockPanel.Dock="Right" HorizontalAlignment="Right" Width="80" Height="50" Click="Button_Click">View Cookies!</Button>
+        </DockPanel>
+    </StackPanel>
+</Window>
+
