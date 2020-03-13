@@ -58,6 +58,6 @@
             <Label Content="CVV: " Style="{StaticResource LabelStyle}"/>
             <TextBox Style="{StaticResource TextBoxStyle}"/>
         </StackPanel>
-        <Button Content="Confirm Purchase" Height="30" FontSize="20"/>
+        <Button Content="Confirm Purchase" Height="30" FontSize="20" Click="Button_Click" Margin="0, 10"/>
     </StackPanel>
 </Window>

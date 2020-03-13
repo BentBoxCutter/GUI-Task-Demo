@@ -1,0 +1,43 @@
+﻿<Window x:Class="GUI_Task_Demo.NewRestaurantFinder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_Task_Demo"
+        mc:Ignorable="d"
+        Title="NewRestaurantFinder" Height="450" Width="400">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Filters" Width="200" FontSize="30"/>
+            <ComboBox Width="185" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15">
+                <ComboBoxItem Content="Most Popular" IsSelected="True" FontSize="15"/>
+                <ComboBoxItem Content="Lowest Price" FontSize="15"/>
+                <ComboBoxItem Content="Fastest Delivery" FontSize="15"/>
+            </ComboBox>
+        </StackPanel>
+        <ListBox>
+            <ListBoxItem>
+                <StackPanel Orientation="Horizontal" Width="375">
+                    <Image Source="https://i.ytimg.com/vi/2qWgjQvVRPI/maxresdefault.jpg" Width="75" Height="75"/>
+                    <Label Content="Subway" VerticalAlignment="Center" FontSize="30" HorizontalContentAlignment="Center" Width="250"/>
+                    <CheckBox VerticalAlignment="Center"/>
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem>
+                <StackPanel Orientation="Horizontal" Width="375">
+                    <Image Source="https://shelbyreport.nyc3.cdn.digitaloceanspaces.com/wp-content/uploads/2016/01/Screen-Shot-2016-01-12-at-2.24.40-PM.png" Width="75" Height="75"/>
+                    <Label Content="Fred Meyer" VerticalAlignment="Center" FontSize="30" Width="250" HorizontalContentAlignment="Center"/>
+                    <CheckBox VerticalAlignment="Center"/>
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem>
+                <StackPanel Orientation="Horizontal" Width="375">
+                    <Image Source="https://shelbyreport.nyc3.cdn.digitaloceanspaces.com/wp-content/uploads/2017/02/New_Walmart_Logo.svg-e1519222902338.jpg" Width="75" Height="75"/>
+                    <Label Content="Walmart" VerticalAlignment="Center" FontSize="30" Width="250" HorizontalContentAlignment="Center"/>
+                    <CheckBox VerticalAlignment="Center"/>
+                </StackPanel>
+            </ListBoxItem>
+        </ListBox>
+        <Button Content="View Cookies" Height="50" Margin="0, 60" Click="Button_Click"/>
+    </StackPanel>
+</Window>

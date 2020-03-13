@@ -58,6 +58,9 @@
     <Compile Include="CookieFinder.xaml.cs">
       <DependentUpon>CookieFinder.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NewRestaurantFinder.xaml.cs">
+      <DependentUpon>NewRestaurantFinder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OrderComplete.xaml.cs">
       <DependentUpon>OrderComplete.xaml</DependentUpon>
     </Compile>
@@ -83,6 +86,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NewRestaurantFinder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="OrderComplete.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

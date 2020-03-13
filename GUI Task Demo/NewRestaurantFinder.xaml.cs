@@ -15,19 +15,19 @@ using System.Windows.Shapes;
 namespace GUI_Task_Demo
 {
     /// <summary>
-    /// Interaction logic for OrderDetails.xaml
+    /// Interaction logic for NewRestaurantFinder.xaml
     /// </summary>
-    public partial class OrderDetails : Window
+    public partial class NewRestaurantFinder : Window
     {
-        public OrderDetails()
+        public NewRestaurantFinder()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            OrderComplete oc = new OrderComplete();
-            oc.Show();
+            CookieFinder cf = new CookieFinder();
+            cf.Show();
         }
     }
 }

@@ -9,7 +9,7 @@
     <StackPanel>
         <Border Background="GreenYellow">
             <Viewbox Height="50">
-                <TextBlock Text="COOKIES!" FontSize="20"/>
+                <TextBlock Text="Find Cookies!" FontSize="20"/>
             </Viewbox>
         </Border>
         <StackPanel Orientation="Horizontal">
