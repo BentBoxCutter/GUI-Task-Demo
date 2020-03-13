@@ -1,0 +1,42 @@
+﻿<Window x:Class="GUI_Task_Demo.OrderComplete"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_Task_Demo"
+        mc:Ignorable="d"
+        AllowsTransparency="True"
+        Title="OrderComplete" Height="450" Width="400">
+    <StackPanel>
+        <Border Background="GreenYellow">
+            <Viewbox Height="50">
+                <TextBlock Text="Order Complete!" FontSize="20"/>
+            </Viewbox>
+        </Border>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Order:"/>
+                <Border BorderThickness="2" BorderBrush="Black" Height="100" Width="200">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="2 x $2.25 - Peanut Butter Cookie&#x0a;1 x $1.50 - Chocolate Chip Cookie&#x0a;"/>
+                        <TextBlock Text="Total: $3.75" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Label Content="Driver:"/>
+                <Border BorderThickness="2" BorderBrush="Black" Height="100" Width="200">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Name: Thomas Eberhart" HorizontalAlignment="Center"/>
+                        <Image Source="https://www.kalona.lib.ia.us/images/gregs-images/4.5%20stars.JPG/image"/>
+                        <Button Content="Details" HorizontalAlignment="Center" Width="50"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+        <Label Content="Tracking" HorizontalAlignment="Center" FontWeight="Bold" FontSize="30"/>
+        <Border BorderThickness="4" BorderBrush="Black">
+            <Image Source="https://image.freepik.com/free-vector/abstract-city-navigation-map-with-lines-streets_53562-6346.jpg" Stretch="None" Height="188" Margin="0,0,-0.4,0"/>
+        </Border>
+    </StackPanel>
+</Window>

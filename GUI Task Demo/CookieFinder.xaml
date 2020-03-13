@@ -7,9 +7,11 @@
         mc:Ignorable="d"
         Title="CookieFinder" Height="450" Width="400">
     <StackPanel>
-        <Viewbox Height="75" Stretch="Fill">
-            <TextBlock Text="COOKIES!" FontSize="20" Background="Green"/>
-        </Viewbox>
+        <Border Background="GreenYellow">
+            <Viewbox Height="50">
+                <TextBlock Text="COOKIES!" FontSize="20"/>
+            </Viewbox>
+        </Border>
         <StackPanel Orientation="Horizontal">
             <Button Content="Back" MinHeight="50" Width="185" Background="DarkGray"/>
             <Button Content="Filters" Width="185" Margin="25, 0" Background="DarkGray"/>
@@ -42,5 +44,6 @@
                 </StackPanel>
             </ListBoxItem>
         </ListBox>
+        <Button Content="Check Out" Height="30" Click="CheckOut_Click"/>
     </StackPanel>
 </Window>

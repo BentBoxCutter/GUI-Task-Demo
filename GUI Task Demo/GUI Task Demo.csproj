@@ -58,6 +58,12 @@
     <Compile Include="CookieFinder.xaml.cs">
       <DependentUpon>CookieFinder.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OrderComplete.xaml.cs">
+      <DependentUpon>OrderComplete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetails.xaml.cs">
+      <DependentUpon>OrderDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RestarauntFInder.xaml.cs">
       <DependentUpon>RestarauntFInder.xaml</DependentUpon>
     </Compile>
@@ -77,6 +83,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="OrderComplete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrderDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RestarauntFInder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
