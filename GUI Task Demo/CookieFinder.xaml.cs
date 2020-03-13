@@ -15,19 +15,13 @@ using System.Windows.Shapes;
 namespace GUI_Task_Demo
 {
     /// <summary>
-    /// Interaction logic for RestarauntFInder.xaml
+    /// Interaction logic for CookieFinder.xaml
     /// </summary>
-    public partial class RestarauntFInder : Window
+    public partial class CookieFinder : Window
     {
-        public RestarauntFInder()
+        public CookieFinder()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            CookieFinder cf = new CookieFinder();
-            cf.Show();
         }
     }
 }

@@ -1,0 +1,46 @@
+﻿<Window x:Class="GUI_Task_Demo.CookieFinder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_Task_Demo"
+        mc:Ignorable="d"
+        Title="CookieFinder" Height="450" Width="400">
+    <StackPanel>
+        <Viewbox Height="75" Stretch="Fill">
+            <TextBlock Text="COOKIES!" FontSize="20" Background="Green"/>
+        </Viewbox>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Back" MinHeight="50" Width="185" Background="DarkGray"/>
+            <Button Content="Filters" Width="185" Margin="25, 0" Background="DarkGray"/>
+        </StackPanel>
+        <ListBox>
+            <ListBoxItem HorizontalAlignment="Right">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <Image Source="https://i.ya-webdesign.com/images/chocolate-chips-png-6.png" Width="120" Height="100"/>
+                        <Label Content="$1.50 Each" VerticalAlignment="Bottom"/>
+                        <TextBox Text="0" Width="100" VerticalAlignment="Bottom"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Chocolate Chip"/>
+                        <Button Content="Add" Width="100" Margin="0, 5" HorizontalAlignment="Right"/>
+                    </StackPanel>
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem HorizontalAlignment="Right">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <Image Source="https://i.ya-webdesign.com/images/cookie-png-peanut-butter-1.png" Width="120" Height="100"/>
+                        <Label Content="$2.25 Each" VerticalAlignment="Bottom"/>
+                        <TextBox Text="0" Width="100" VerticalAlignment="Bottom"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Peanut Butter"/>
+                        <Button Content="Add" Width="100" Margin="0, 5" HorizontalAlignment="Right"/>
+                    </StackPanel>
+                </StackPanel>
+            </ListBoxItem>
+        </ListBox>
+    </StackPanel>
+</Window>

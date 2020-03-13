@@ -55,9 +55,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CookieFinder.xaml.cs">
+      <DependentUpon>CookieFinder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RestarauntFInder.xaml.cs">
       <DependentUpon>RestarauntFInder.xaml</DependentUpon>
     </Compile>
+    <Page Include="CookieFinder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
