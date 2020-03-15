@@ -5,59 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_Task_Demo"
         mc:Ignorable="d"
-        Title="OrderDetails" Height="450" Width="400">
+        Title="OrderDetails" Height="450" Width="300">
 
-    <Window.Resources>
-        <Style x:Key="LabelStyle" TargetType="Label">
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Width" Value="175"/>
-        </Style>
-        <Style x:Key="TextBoxStyle" TargetType="TextBox">
-            <Setter Property="Width" Value="215"/>
-        </Style>
-    </Window.Resources>
+    <Grid Style="{StaticResource Main}" x:Name="MainPanel">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="MainMenu">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Order Details" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="2"/>
 
-    <StackPanel>
-        <Border Background="GreenYellow">
-            <Viewbox Height="50">
-                <TextBlock Text="Order Details" FontSize="20"/>
-            </Viewbox>
-        </Border>
-        <StackPanel Orientation="Horizontal">
-            <Label Content="Name: " Style="{StaticResource LabelStyle}"/>
-            <TextBox Style="{StaticResource TextBoxStyle}"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <Label Content="Address: " Style="{StaticResource LabelStyle}"/>
-            <TextBox Style="{StaticResource TextBoxStyle}"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <Label Content="City: " Style="{StaticResource LabelStyle}"/>
-            <TextBox Style="{StaticResource TextBoxStyle}"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <Label Content="State: " Style="{StaticResource LabelStyle}"/>
-            <TextBox Style="{StaticResource TextBoxStyle}"/>
-        </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Name: "/>
+                    <Label Content="Address: "/>
+                    <Label Content="City: "/>
+                    <Label Content="State: "/>
+                    <Label Content="ZIP: "/>
+                    <Label Content=""/>
+                    <Label Content="Name on Card: "/>
+                    <Label Content="Card Number: "/>
+                    <Label Content="Expiration Date: "/>
+                    <Label Content="CVV: "/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBox Width="175" Margin="0, 5, 0, 2.5"/>
+                    <TextBox Width="175" Margin="0, 5, 0, 2.5"/>
+                    <TextBox Width="175" Margin="0, 5, 0, 2.5"/>
+                    <TextBox Width="175" Margin="0, 5, 0, 2.5"/>
+                    <TextBox Width="175" Margin="0, 5, 0, 2.5"/>
+                    <Label Content=""/>
+                    <TextBox Width="175" Margin="0, 5, 0, 2.5"/>
+                    <TextBox Width="175" Margin="0, 5, 0, 2.5"/>
+                    <TextBox Width="175" Margin="0, 5, 0, 2.5"/>
+                    <TextBox Width="175" Margin="0, 5, 0, 2.5"/>
+                </StackPanel>
+            </StackPanel>
 
-        <Separator/>
-
-        <StackPanel Orientation="Horizontal">
-            <Label Content="Name on Card: " Style="{StaticResource LabelStyle}"/>
-            <TextBox Style="{StaticResource TextBoxStyle}"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <Label Content="Card Number: " Style="{StaticResource LabelStyle}"/>
-            <TextBox Style="{StaticResource TextBoxStyle}"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <Label Content="Expiration Date: " Style="{StaticResource LabelStyle}"/>
-            <TextBox Style="{StaticResource TextBoxStyle}"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <Label Content="CVV: " Style="{StaticResource LabelStyle}"/>
-            <TextBox Style="{StaticResource TextBoxStyle}"/>
-        </StackPanel>
-        <Button Content="Confirm Purchase" Height="30" FontSize="20" Click="Button_Click" Margin="0, 10"/>
-    </StackPanel>
+            <Button Style="{StaticResource Modern}" Grid.Row="2" Grid.ColumnSpan="2" Content="Confirm Purchase" Margin="0, 90, 0, 0" Click="Button_Click"/>
+        </Grid>
+    </Grid>
 </Window>

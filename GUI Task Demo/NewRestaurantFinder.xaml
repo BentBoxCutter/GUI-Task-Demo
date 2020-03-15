@@ -7,22 +7,6 @@
         mc:Ignorable="d"
         Title="NewRestaurantFinder" Height="450" Width="300">
     <Window.Resources>
-        <Style x:Key="Modern">
-            <Setter Property="Control.Background" Value="#dfe3e6"/>
-            <Setter Property="Control.BorderThickness" Value="0"/>
-            <Setter Property="Control.Margin" Value="1"/>
-        </Style>
-
-        <Style x:Key="Main">
-            <Setter Property="Control.Background" Value="#f5f7fa"/>
-        </Style>
-
-        <Style x:Key="FilterMenu">
-            <Setter Property="Control.Background" Value="#f5f7fa"/>
-        </Style>
-
-        <SolidColorBrush x:Key="DarkBrush" Color="#5d5e5e"/>
-        <SolidColorBrush x:Key="LightBrush" Color="#f5f7fa"/>
 
         <Storyboard x:Key="OpenMenu">
             <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,-575,0,0" To="0,-275,0,0" DecelerationRatio="0.9" Duration="0:0:0.25"/>

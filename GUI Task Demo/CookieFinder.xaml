@@ -5,45 +5,96 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_Task_Demo"
         mc:Ignorable="d"
-        Title="CookieFinder" Height="450" Width="400">
-    <StackPanel>
-        <Border Background="GreenYellow">
-            <Viewbox Height="50">
-                <TextBlock Text="Find Cookies!" FontSize="20"/>
-            </Viewbox>
-        </Border>
-        <StackPanel Orientation="Horizontal">
-            <Button Content="Back" MinHeight="50" Width="185" Background="DarkGray"/>
-            <Button Content="Filters" Width="185" Margin="25, 0" Background="DarkGray"/>
-        </StackPanel>
-        <ListBox>
-            <ListBoxItem HorizontalAlignment="Right">
-                <StackPanel Orientation="Vertical">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                        <Image Source="https://i.ya-webdesign.com/images/chocolate-chips-png-6.png" Width="120" Height="100"/>
-                        <Label Content="$1.50 Each" VerticalAlignment="Bottom"/>
-                        <TextBox Text="0" Width="100" VerticalAlignment="Bottom"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="Chocolate Chip"/>
-                        <Button Content="Add" Width="100" Margin="0, 5" HorizontalAlignment="Right"/>
-                    </StackPanel>
+        Title="CookieFinder" Height="450" Width="300">
+    <Window.Resources>
+        <Storyboard x:Key="OpenMenu">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,-575,0,0" To="0,-275,0,0" DecelerationRatio="0.9" Duration="0:0:0.25"/>
+        </Storyboard>
+
+        <Storyboard x:Key="CloseMenu">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,-425,0,0" To="0,-575,0,0" DecelerationRatio="0.9" Duration="0:0:0.25"/>
+        </Storyboard>
+
+        <Storyboard x:Key="FadeDark">
+            <ColorAnimation Storyboard.TargetName="MainPanel" Storyboard.TargetProperty="(Grid.Background).(SolidColorBrush.Color)" From="#f5f7fa" To="#5d5e5e" DecelerationRatio="0.9" Duration="0:0:0.25"/>
+        </Storyboard>
+
+        <Storyboard x:Key="FadeLight">
+            <ColorAnimation Storyboard.TargetName="MainPanel" Storyboard.TargetProperty="(Grid.Background).(SolidColorBrush.Color)" From="#5d5e5e" To="#f5f7fa" DecelerationRatio="0.9" Duration="0:0:0.25"/>
+        </Storyboard>
+
+    </Window.Resources>
+
+    <Grid Style="{StaticResource Main}" x:Name="MainPanel">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Panel.ZIndex="2" x:Name="FilterMenu" Style="{StaticResource FilterMenu}" HorizontalAlignment="Stretch" Height="150" Margin="0, -575, 0, 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Filters" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="2.5, 0, 0, 0">
+                <StackPanel>
+                    <Label Content="Price: "/>
+                    <Label Content="Rating: "/>
                 </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem HorizontalAlignment="Right">
-                <StackPanel Orientation="Vertical">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                        <Image Source="https://i.ya-webdesign.com/images/cookie-png-peanut-butter-1.png" Width="120" Height="100"/>
-                        <Label Content="$2.25 Each" VerticalAlignment="Bottom"/>
-                        <TextBox Text="0" Width="100" VerticalAlignment="Bottom"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="Peanut Butter"/>
-                        <Button Content="Add" Width="100" Margin="0, 5" HorizontalAlignment="Right"/>
-                    </StackPanel>
+                <StackPanel>
+                    <Slider Width="200" Margin="0, 5, 0, 2.5"/>
+                    <Slider Width="200" Margin="0, 5, 0, 2.5"/>
                 </StackPanel>
-            </ListBoxItem>
-        </ListBox>
-        <Button Content="Check Out" Height="30" Click="CheckOut_Click"/>
-    </StackPanel>
+            </StackPanel>
+            <Button Style="{StaticResource Modern}" Grid.Row="2" Content="Close" Click="FilterCloseClick"/>
+        </Grid>
+        <Grid x:Name="MainMenu">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Style="{StaticResource Modern}" Content="Back" Click="GotoMainMenu"/>
+
+            <Button Style="{StaticResource Modern}" Content="Filters" Click="FilterClick" Grid.Column="2"/>
+
+            <ScrollViewer Grid.Row="1" Grid.ColumnSpan="2" Height="365">
+                <StackPanel>
+                    <Button x:Name="ChocolateChipButton" Style="{StaticResource Modern}" Height="100" Width="250">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="https://i.ya-webdesign.com/images/chocolate-chips-png-6.png" Width="100" Height="100"/>
+                            <StackPanel>
+                                <Label Content="Chocolate Chip" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox Width="80">0</TextBox>
+                                    <Button Content="Add" Style="{StaticResource Modern}" Width="40" BorderThickness="1"/>
+                                </StackPanel>
+                                <Label Content="$1.50 ea" HorizontalAlignment="Right"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="PeanutButterButton" Style="{StaticResource Modern}" Height="100" Width="250">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="https://i.ya-webdesign.com/images/cookie-png-peanut-butter-1.png" Width="100" Height="60"/>
+                            <StackPanel>
+                                <Label Content="Peanut Butter" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox Width="80">0</TextBox>
+                                    <Button Content="Add" Style="{StaticResource Modern}" Width="40" BorderThickness="1"/>
+                                </StackPanel>
+                                <Label Content="$2.25 ea" HorizontalAlignment="Right"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </ScrollViewer>
+
+            <Button Style="{StaticResource Modern}" Grid.Row="2" Grid.ColumnSpan="2" Content="Checkout" Click="CheckOut_Click"/>
+        </Grid>
+    </Grid>
 </Window>
