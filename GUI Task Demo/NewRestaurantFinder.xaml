@@ -5,39 +5,110 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_Task_Demo"
         mc:Ignorable="d"
-        Title="NewRestaurantFinder" Height="450" Width="400">
-    <StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <Button Content="Filters" Width="200" FontSize="30"/>
-            <ComboBox Width="185" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15">
-                <ComboBoxItem Content="Most Popular" IsSelected="True" FontSize="15"/>
-                <ComboBoxItem Content="Lowest Price" FontSize="15"/>
-                <ComboBoxItem Content="Fastest Delivery" FontSize="15"/>
+        Title="NewRestaurantFinder" Height="450" Width="300">
+    <Window.Resources>
+        <Style x:Key="Modern">
+            <Setter Property="Control.Background" Value="#dfe3e6"/>
+            <Setter Property="Control.BorderThickness" Value="0"/>
+            <Setter Property="Control.Margin" Value="1"/>
+        </Style>
+
+        <Style x:Key="Main">
+            <Setter Property="Control.Background" Value="#f5f7fa"/>
+        </Style>
+
+        <Style x:Key="FilterMenu">
+            <Setter Property="Control.Background" Value="#f5f7fa"/>
+        </Style>
+
+        <SolidColorBrush x:Key="DarkBrush" Color="#5d5e5e"/>
+        <SolidColorBrush x:Key="LightBrush" Color="#f5f7fa"/>
+
+        <Storyboard x:Key="OpenMenu">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,-575,0,0" To="0,-275,0,0" DecelerationRatio="0.9" Duration="0:0:0.25"/>
+        </Storyboard>
+
+        <Storyboard x:Key="CloseMenu">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,-425,0,0" To="0,-575,0,0" DecelerationRatio="0.9" Duration="0:0:0.25"/>
+        </Storyboard>
+
+        <Storyboard x:Key="FadeDark">
+            <ColorAnimation Storyboard.TargetName="MainPanel" Storyboard.TargetProperty="(Grid.Background).(SolidColorBrush.Color)" From="#f5f7fa" To="#5d5e5e" DecelerationRatio="0.9" Duration="0:0:0.25"/>
+        </Storyboard>
+
+        <Storyboard x:Key="FadeLight">
+            <ColorAnimation Storyboard.TargetName="MainPanel" Storyboard.TargetProperty="(Grid.Background).(SolidColorBrush.Color)" From="#5d5e5e" To="#f5f7fa" DecelerationRatio="0.9" Duration="0:0:0.25"/>
+        </Storyboard>
+
+    </Window.Resources>
+
+    <Grid Style="{StaticResource Main}" x:Name="MainPanel">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Panel.ZIndex="2" x:Name="FilterMenu" Style="{StaticResource FilterMenu}" HorizontalAlignment="Stretch" Height="150" Margin="0, -575, 0, 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Filters" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="2.5, 0, 0, 0">
+                <StackPanel>
+                    <Label Content="Distance: "/>
+                    <Label Content="Rating: "/>
+                    <Label Content="Distance: "/>
+                </StackPanel>
+                <StackPanel>
+                    <Slider Width="200" Margin="0, 5, 0, 2.5"/>
+                    <Slider Width="200" Margin="0, 5, 0, 2.5"/>
+                    <Slider Width="200" Margin="0, 5, 0, 2.5"/>
+                </StackPanel>
+            </StackPanel>
+            <Button Style="{StaticResource Modern}" Grid.Row="2" Content="Close" Click="FilterCloseClick"/>
+        </Grid>
+        <Grid x:Name="MainMenu">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Style="{StaticResource Modern}" Content="Filters" Click="FilterClick"/>
+            <ComboBox Style="{StaticResource Modern}" Grid.Column="2">
+                <ComboBoxItem Content="Most Popular" IsSelected="True"/>
+                <ComboBoxItem Content="Lowest Price"/>
+                <ComboBoxItem Content="Fastest Delivery"/>
             </ComboBox>
-        </StackPanel>
-        <ListBox>
-            <ListBoxItem>
-                <StackPanel Orientation="Horizontal" Width="375">
-                    <Image Source="https://i.ytimg.com/vi/2qWgjQvVRPI/maxresdefault.jpg" Width="75" Height="75"/>
-                    <Label Content="Subway" VerticalAlignment="Center" FontSize="30" HorizontalContentAlignment="Center" Width="250"/>
-                    <CheckBox VerticalAlignment="Center"/>
+
+            <ScrollViewer Grid.Row="1" Grid.ColumnSpan="2" Height="365">
+                <StackPanel>
+                    <Button x:Name="SubwayButton" Style="{StaticResource Modern}" Height="100" Width="200">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="https://i.ytimg.com/vi/2qWgjQvVRPI/maxresdefault.jpg" Width="75" Height="75"/>
+                            <Label Content="Subway Cookies" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="FredMeyerButton" Style="{StaticResource Modern}" Height="100" Width="200">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="https://shelbyreport.nyc3.cdn.digitaloceanspaces.com/wp-content/uploads/2016/01/Screen-Shot-2016-01-12-at-2.24.40-PM.png" Width="75" Height="75"/>
+                            <Label Content="Fred Meyer Cookies" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="WalmartButton" Style="{StaticResource Modern}" Height="100" Width="200">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="https://shelbyreport.nyc3.cdn.digitaloceanspaces.com/wp-content/uploads/2017/02/New_Walmart_Logo.svg-e1519222902338.jpg" Width="75" Height="75"/>
+                            <Label Content="Walmart Cookies" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem>
-                <StackPanel Orientation="Horizontal" Width="375">
-                    <Image Source="https://shelbyreport.nyc3.cdn.digitaloceanspaces.com/wp-content/uploads/2016/01/Screen-Shot-2016-01-12-at-2.24.40-PM.png" Width="75" Height="75"/>
-                    <Label Content="Fred Meyer" VerticalAlignment="Center" FontSize="30" Width="250" HorizontalContentAlignment="Center"/>
-                    <CheckBox VerticalAlignment="Center"/>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem>
-                <StackPanel Orientation="Horizontal" Width="375">
-                    <Image Source="https://shelbyreport.nyc3.cdn.digitaloceanspaces.com/wp-content/uploads/2017/02/New_Walmart_Logo.svg-e1519222902338.jpg" Width="75" Height="75"/>
-                    <Label Content="Walmart" VerticalAlignment="Center" FontSize="30" Width="250" HorizontalContentAlignment="Center"/>
-                    <CheckBox VerticalAlignment="Center"/>
-                </StackPanel>
-            </ListBoxItem>
-        </ListBox>
-        <Button Content="View Cookies" Height="50" Margin="0, 60" Click="Button_Click"/>
-    </StackPanel>
+            </ScrollViewer>
+
+            <Button Style="{StaticResource Modern}" Grid.Row="2" Grid.ColumnSpan="2" Content="View Cookies" Click="Button_Click"/>
+        </Grid>
+    </Grid>
 </Window>
